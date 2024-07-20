@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+
+</head>
+<body>
+    <div id="calculator"> 
+        <input placeholder="INPUT" class="input" type="text" readonly>
+        <input placeholder="OUTPUT" id="output" class="input"  type="text" readonly>
+        <div class="button-container">
+        <button class="button" onclick=" currentValue=''; document.querySelector('.input').value=currentValue;  document.querySelector('#output').value=currentValue;">C</button>
+        <button class="button" onclick=" currentValue=currentValue+'1'; document.querySelector('.input').value=currentValue;"> 1</button>
+        <button class="button" onclick=" currentValue=currentValue+'2'; document.querySelector('.input').value=currentValue;" >2</button>
+        <button class="button" onclick=" currentValue=currentValue+'+'; document.querySelector('.input').value=currentValue;">+</button>
+        <button class="button" onclick=" currentValue=currentValue+'3'; document.querySelector('.input').value=currentValue;">3</button>
+        <button class="button" onclick=" currentValue=currentValue+'4'; document.querySelector('.input').value=currentValue;">4</button>
+        <button class="button" onclick=" currentValue=currentValue+'-'; document.querySelector('.input').value=currentValue;">-</button>
+        <button class="button" onclick=" currentValue=currentValue+'5'; document.querySelector('.input').value=currentValue;"> 5</button>
+        <button class="button" onclick=" currentValue=currentValue+'6'; document.querySelector('.input').value=currentValue;"> 6</button>
+        <button class="button" onclick=" currentValue=currentValue+'*'; document.querySelector('.input').value=currentValue;"> *</button>
+        <button class="button" onclick=" currentValue=currentValue+'7'; document.querySelector('.input').value=currentValue;"> 7</button>
+        <button class="button" onclick=" currentValue=currentValue+'8'; document.querySelector('.input').value=currentValue;"> 8</button>
+        <button class="button" onclick=" currentValue=currentValue+'/'; document.querySelector('.input').value=currentValue;"> /</button>
+        <button class="button" onclick=" const arr=['+','-','*','/'];
+        let flag=0;
+        for (let i = 1; i < currentValue.length; i++) {
+            if (arr.includes(currentValue.charAt(i)) && arr.includes(currentValue.charAt(i-1)))
+            flag=1;
+        };
+        if(arr.includes(currentValue.charAt(0)) || arr.includes(currentValue.charAt(currentValue.length -1)))
+        flag=1;
+
+        if(flag==1)
+        currentValue='Sysntax error'
+    else
+         currentValue=eval(currentValue);
+          document.querySelector('#output').value=currentValue;"> =</button>
+        <button class="button" onclick=" currentValue=currentValue+'9'; document.querySelector('.input').value=currentValue;"> 9</button>
+        <button class="button" onclick=" currentValue=currentValue+'.'; document.querySelector('.input').value=currentValue;"> .</button>
+        <button class="button" onclick=" currentValue=currentValue+'0'; document.querySelector('.input').value=currentValue;"> 0</button>
+        <button class="button" onclick=" currentValue=currentValue.slice(0,-1); document.querySelector('.input').value=currentValue;"> ← </button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let currentValue='';
+        document.querySelector('.input').value=currentValue;
+        document.querySelector('#output').value=currentValue;
+    </script>
+</body>
+</html>
